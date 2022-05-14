@@ -1,0 +1,45 @@
+
+:root{  
+    --panel-bg:rgb(20, 24, 53);
+    --wrapper-bg:rgb(13, 14, 34);
+}
+html{
+    font-size: 16px;
+    color:aliceblue;
+}
+/* 整体样式 */
+.wrapper{
+    display: flex;
+    background-color: var(--wrapper-bg);
+    height: 100vh;
+}
+
+/* 侧边栏 样式 */
+.left-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.left-side svg{
+    width: 2rem;
+    margin: 1rem;
+}
+
+/* 主要界面栏 样式 */
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+/* -- 界面头 */
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* other */
+svg,img{
+    width:1rem;
+}
