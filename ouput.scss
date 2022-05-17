@@ -1,0 +1,179 @@
+html {
+  font-size: 16px;
+  color: white;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.wrapper {
+  background-color: #0E0E23;
+  display: flex;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.left-side svg {
+  width: 1rem;
+  padding: 0.5rem 0;
+}
+.left-side svg:hover {
+  cursor: pointer;
+  color: #4255D3;
+}
+
+.main-container {
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+.main-container .header {
+  box-sizing: border-box;
+  display: flex;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 0 2rem;
+  align-items: center;
+  background-color: blue;
+  text-decoration: none;
+}
+.main-container .header .logo {
+  padding: 20px 50px 20px 0;
+  font-size: 1rem;
+  color: white;
+}
+.main-container .header .logo-det {
+  margin-left: 2px;
+  border-radius: 50%;
+  padding: 8px 10px 8px 10px;
+  background-color: #4255D3;
+  font-size: 15px;
+}
+.main-container .header .user-info {
+  margin-left: auto;
+  display: flex;
+  color: #606172;
+}
+.main-container .header .user-info .profile {
+  width: 1rem;
+}
+.main-container .header .user-info .button {
+  background-color: #1A1B3C;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #606172;
+  padding: 0 1rem;
+  border-radius: 0.4rem;
+  margin-right: 1rem;
+}
+.main-container .header .user-info .button svg {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+.main-container .header .user-info .user-name {
+  display: flex;
+  align-items: center;
+}
+.main-container .header .user-info .profile {
+  width: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.main-container .header .user-info .hour {
+  display: flex;
+  align-items: center;
+}
+.main-container .header-link {
+  padding: 1.25rem;
+  text-decoration: none;
+  color: #91939E;
+  display: flex;
+  border-bottom: 3px solid transparent;
+  align-items: center;
+  transition: 0.3s;
+}
+.main-container .header-link svg {
+  width: 1rem;
+  padding-right: 1rem;
+}
+.main-container .header-link.active, .main-container .header-link:hover {
+  background: #11132c;
+  border-bottom: 3px solid #4255d4;
+}
+.main-container .user-box.first-box {
+  display: flex;
+  margin: 1rem 1rem 1rem 0;
+}
+.main-container .user-box.first-box .activity {
+  width: 30%;
+}
+.main-container .user-box.first-box .activity.card {
+  background-color: blue;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+.main-container .user-box.first-box .discount {
+  width: 20%;
+}
+.main-container .user-box.first-box .discount.card {
+  background-color: blue;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+.main-container .user-box.first-box .cards-wrapper {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  padding: 1rem;
+}
+.main-container .user-box.first-box .cards-wrapper svg {
+  width: 1rem;
+}
+.main-container .user-box.first-box .cards-wrapper .cards-header {
+  display: flex;
+}
+.main-container .user-box.first-box .cards-header {
+  display: flex;
+  justify-content: center;
+}
+.main-container .user-box.first-box .cards-header-date {
+  display: flex;
+  justify-content: center;
+}
+.main-container .user-box.first-box .cards-head {
+  display: flex;
+  justify-content: center;
+}
+.main-container .user-box.first-box .items.days {
+  display: flex;
+  justify-content: center;
+}
+.main-container .user-box.first-box .items.days .item {
+  margin: 0.5rem;
+}
+.main-container .user-box.first-box .items.numbers {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.main-container .user-box.first-box .items.numbers .item {
+  margin: 0.5rem;
+}
+
+img {
+  width: 12px;
+}
+
+/*# sourceMappingURL=output.css.map */
