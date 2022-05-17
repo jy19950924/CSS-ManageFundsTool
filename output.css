@@ -124,6 +124,9 @@ html {
   padding: 1rem;
   margin-right: 1rem;
 }
+.main-container .user-box.first-box .activity-links {
+  display: flex;
+}
 .main-container .user-box.first-box .discount {
   width: 20%;
 }
@@ -159,17 +162,27 @@ html {
 }
 .main-container .user-box.first-box .items.days {
   display: flex;
-  justify-content: center;
 }
 .main-container .user-box.first-box .items.days .item {
-  margin: 0.5rem;
+  box-sizing: border-box;
+  width: 14.2857142857%;
+  text-align: center;
 }
 .main-container .user-box.first-box .items.numbers {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 .main-container .user-box.first-box .items.numbers .item {
-  margin: 0.5rem;
+  box-sizing: border-box;
+  width: 14.2857142857%;
+  text-align: center;
+}
+
+.destination-profile img {
+  width: 1rem;
+}
+.destination-length svg {
+  width: 1rem;
 }
 
 img {

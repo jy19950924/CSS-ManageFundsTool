@@ -157,6 +157,12 @@ html {
                     padding: 1rem;
                     margin-right: 1rem;
                 }
+                &-links{
+                    display: flex;
+                    &.active{
+
+                    }
+                }
             }
 
             .discount {
@@ -205,26 +211,46 @@ html {
             .items {
                 &.days {
                     display: flex;
-                    justify-content: center;
+                   
 
                     .item {
-                        margin: 0.5rem;
+                        box-sizing: border-box;
+                        width: calc(100%/7);
+                        text-align: center;
                     }
                 }
 
                 &.numbers {
                     display: flex;
-                    flex-wrap: nowrap;
+                    
+                    flex-wrap: wrap;
 
                     .item {
-                        margin: 0.5rem;
+                        box-sizing: border-box;
+                        width: calc(100%/7);
+                        text-align: center;
                     }
                 }
             }
         }
     }
 }
+.destination{
 
+    &-card{
+       
+    }
+    &-profile{
+        img{
+            width: 1rem;
+        }
+    }
+    &-length{
+        svg{
+            width:1rem;
+        }
+    }
+}
 
 
 
