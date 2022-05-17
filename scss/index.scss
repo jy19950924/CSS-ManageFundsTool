@@ -1,0 +1,234 @@
+$all-bg:#0E0E23;
+$panel-bg:blue; //#131731; //#141833;
+$word-color:#606172;
+
+:root {}
+
+html {
+    font-size: 16px;
+    color: white;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.wrapper {
+    background-color: $all-bg;
+    display: flex;
+}
+
+// 侧边栏
+.left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    svg {
+        width: 1rem;
+        padding: 0.5rem 0;
+
+        &:hover {
+            cursor: pointer;
+            color: #4255D3;
+        }
+    }
+
+}
+
+.main-container {
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        box-sizing: border-box;
+        display: flex;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        padding: 0 2rem;
+        align-items: center;
+        background-color: $panel-bg;
+        text-decoration: none;
+
+        .logo {
+            padding: 20px 50px 20px 0;
+            font-size: 1rem;
+            color: white;
+
+            &-det {
+                margin-left: 2px;
+                border-radius: 50%;
+                padding: 8px 10px 8px 10px;
+
+                background-color: #4255D3;
+                font-size: 15px;
+            }
+        }
+
+        .user-info {
+            margin-left: auto;
+            display: flex;
+            color: $word-color;
+
+            .profile {
+                width: 1rem;
+            }
+
+            .button {
+                background-color: #1A1B3C;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                color: $word-color;
+                padding: 0 1rem;
+                border-radius: 0.4rem;
+                margin-right: 1rem;
+
+                svg {
+                    padding: 0.5rem;
+                    margin-left: 0.5rem;
+                }
+            }
+
+            .user-name {
+                display: flex;
+                align-items: center;
+            }
+
+            .profile {
+                width: 1rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                ;
+            }
+
+            .hour {
+                display: flex;
+                align-items: center;
+
+            }
+        }
+
+        &-link {
+            padding: 1.25rem;
+            text-decoration: none;
+            color: #91939E;
+            display: flex;
+            border-bottom: 3px solid transparent;
+            align-items: center;
+
+            svg {
+                width: 1rem;
+                padding-right: 1rem;
+            }
+
+            transition: 0.3s;
+
+            &.active,
+            &:hover {
+                background: #11132c;
+                border-bottom: 3px solid #4255d4;
+
+            }
+        }
+
+    }
+
+    .user-box {
+        &.first-box {
+            display: flex;
+            margin: 1rem 1rem 1rem 0;
+
+            .activity {
+                width: 30%;
+
+                &.card {
+                    background-color: $panel-bg;
+                    padding: 1rem;
+                    margin-right: 1rem;
+                }
+            }
+
+            .discount {
+                width: 20%;
+
+                &.card {
+                    background-color: $panel-bg;
+                    padding: 1rem;
+                    margin-right: 1rem;
+                }
+            }
+
+            .cards {
+                &-wrapper {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    background-color: $panel-bg;
+                    padding: 1rem;
+
+                    svg {
+                        width: 1rem;
+                    }
+
+                    .cards-header {
+                        display: flex;
+                    }
+                }
+
+                &-header {
+                    display: flex;
+                    justify-content: center;
+
+                    &-date {
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+
+                &-head {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            .items {
+                &.days {
+                    display: flex;
+                    justify-content: center;
+
+                    .item {
+                        margin: 0.5rem;
+                    }
+                }
+
+                &.numbers {
+                    display: flex;
+                    flex-wrap: nowrap;
+
+                    .item {
+                        margin: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+img {
+    width: 12px;
+}
