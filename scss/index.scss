@@ -1,6 +1,7 @@
 $all-bg:#0E0E23;
 $panel-bg:blue; //#131731; //#141833;
 $word-color:#606172;
+$table-color:#10122b;
 
 :root {}
 
@@ -12,6 +13,7 @@ html {
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 
 
@@ -44,7 +46,7 @@ html {
 
 .main-container {
     width: 100%;
-    overflow-y: scroll;
+
     display: flex;
     flex-direction: column;
 
@@ -155,23 +157,80 @@ html {
                 &.card {
                     background-color: $panel-bg;
                     padding: 1rem;
-                    margin-right: 1rem;
+                    // margin-right: 1rem;
                 }
-                &-links{
-                    display: flex;
-                    &.active{
 
-                    }
+                &-links {
+                    display: flex;
+
+                    &.active {}
                 }
             }
 
             .discount {
-                width: 20%;
+                max-width: 320px;
+                width: 100%;
+                margin-left: 20px;
+                padding: 2.5rem 1.875rem;
+
+                .title {
+                    margin-bottom: 2rem;
+                }
 
                 &.card {
                     background-color: $panel-bg;
-                    padding: 1rem;
+                    // padding: 2.5rem 1.875rem;
                     margin-right: 1rem;
+                }
+
+                &-wrapper {
+                    display: flex;
+                }
+
+                &-info {
+                    .subtitle {
+                        font-size: 13px;
+                        margin-bottom: 8px;
+
+                        &-count {
+                            color: #17927E;
+
+                            &+.subtitle {
+                                // 相邻兄弟选择器
+                                margin-top: 20px;
+                            }
+
+                            &.dist {
+                                color: #e85471;
+                            }
+                        }
+                    }
+                }
+
+                &-chart {
+                    margin-left: auto;
+
+                    .circle {
+                        width: 100px;
+                        height: 100px;
+                        border: 3px solid #535771;
+                        border-radius: 50%;
+                        position: relative;
+
+                        .pie {
+                            width: 120px;
+                            height: 120px;
+                            // left: -20%;
+                            // top: -20%;
+                            transform: translate(-20px, -20px) rotate(-90deg);
+                            position: relative;
+
+                            svg {
+                                width: 120px;
+
+                            }
+                        }
+                    }
                 }
             }
 
@@ -211,7 +270,6 @@ html {
             .items {
                 &.days {
                     display: flex;
-                   
 
                     .item {
                         box-sizing: border-box;
@@ -222,7 +280,7 @@ html {
 
                 &.numbers {
                     display: flex;
-                    
+
                     flex-wrap: wrap;
 
                     .item {
@@ -233,27 +291,77 @@ html {
                 }
             }
         }
+
+        &.second-box {
+            display: flex;
+
+            .cards {
+                &-wrapper {
+                    background-color: $panel-bg;
+                    padding: 1rem;
+                }
+
+                &-header {
+                    display: flex;
+
+                    &-date {
+                        display: flex;
+
+                        svg {
+                            width: 1rem;
+                        }
+                    }
+                }
+
+                &-view {
+
+                    svg {
+                        width: 1rem;
+                    }
+                }
+
+                &-button {
+                    &.button {
+                        svg {
+                            width: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .card {
+                &.transection {
+                    background-color: $panel-bg;
+                    margin-left: 1rem;
+                    padding: 1rem;
+                }
+            }
+        }
     }
 }
-.destination{
 
-    &-card{
-       
-    }
-    &-profile{
-        img{
+.destination {
+    display: flex;
+
+    &-card {}
+
+    &-profile {
+        img {
             width: 1rem;
         }
     }
-    &-length{
-        svg{
-            width:1rem;
+
+    &-length {
+        svg {
+            width: 1rem;
         }
     }
 }
 
 
-
+svg {
+    width: 1rem;
+}
 
 img {
     width: 12px;
