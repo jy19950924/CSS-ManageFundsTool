@@ -41,10 +41,10 @@ body {
 .left-side {
     display: flex;
     flex-direction: column;
-
+    align-items: center;
     height: 100vh;
     width: 6rem;
-    padding: 117px 40px;
+    padding: 117px 0 40px;
 
     svg {
         width: 24px;
@@ -151,16 +151,20 @@ body {
     .user-box {
         margin-top: 25px;
         display: flex;
+        height: 100%;
 
         &+& {
             margin-top: 20px;
         }
-
+        .cards-header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+/*
         &.first-box {
             display: flex;
             margin: 1rem 1rem 1rem 0;
-
-
 
             .discount {
                 max-width: 320px;
@@ -175,7 +179,7 @@ body {
 
                 &.card {
                     background-color: $panel-bg;
-                    max-height: 430px;
+                    max-height: 416px;
                     height: 100%;
                     padding: 40px 30px;
                 }
@@ -304,41 +308,7 @@ body {
                 }
             }
 
-            .cards {
-                &-wrapper {
-                    width: 67%;
-                    max-width: 305px;
-                    display: flex;
-                    flex-direction: column;
-                    background-color: $panel-bg;
-                    padding: 1rem;
-                    margin: 0 20px;
-
-                    svg {
-                        width: 1rem;
-                    }
-
-                    .cards-header {
-                        display: flex;
-                    }
-                }
-
-                &-header {
-                    display: flex;
-                    justify-content: center;
-
-                    &-date {
-                        display: flex;
-                        justify-content: center;
-                    }
-                }
-
-                &-head {
-                    display: flex;
-                    justify-content: center;
-                }
-            }
-
+            
             .items {
                 &.days {
                     display: flex;
@@ -363,7 +333,8 @@ body {
                 }
             }
         }
-
+*/
+        /*
         &.second-box {
             display: flex;
 
@@ -409,16 +380,16 @@ body {
                 }
             }
         }
+        */
     }
 }
 
 .activity {
     max-width: 480px;
-
+    width: 100%;
     .title {
         margin-bottom: 20px;
     }
-
 
     &-links {
         display: flex;
@@ -430,6 +401,9 @@ body {
     &-link {
         cursor: pointer;
         padding-bottom: 10px;
+        &+&{
+            margin-left: 25px;
+        }
 
         &.active {
             font-weight: 500;
@@ -443,9 +417,12 @@ body {
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    max-height: 430px;
+    max-height: 416px;
     width: 100%;
     border-radius: 6px;
+    &+&{
+        margin-left: 20px;
+    }
 
     .title {
         font-size: 16px;
@@ -460,27 +437,203 @@ body {
 
 .destination {
     display: flex;
-
-    &-card {}
+    -webkit-box-align: center;
+    margin-top: auto;
+    justify-content: center;
+    &-card {
+        background:linear-gradient(45deg, #1a1d3a 0%, #212752 100%);
+        padding: 20px;
+        border-radius: 6px;
+        width:100%;
+        &+&{
+            margin-left: 20px;
+        }
+    }
 
     &-profile {
+        display: flex;
+        align-items: center;
         img {
-            width: 1rem;
+            width: 46px;
+            height: 46px;
+            padding: 2px;
+            border: 1px solid #bebec4;
+            border-radius: 50%;
+            object-fit: cover;
         }
     }
 
     &-length {
+        margin-left: auto;
+        font-size: 13px;
+        
+        svg {
+            width: 18px;
+        }
+    }
+    &-points{
+        margin-top: 30px;
+    }
+}
+.point{
+    font-size: 14px;
+    color: #bebec4;
+    font-weight: 500;
+}
+.sub-point{
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+// discount offers
+.discount{
+    max-width: 320px;
+    width: 100%;
+    .title{ // 把属于每个不用面板中间隔放到面板样式中，相同的字体大小，抽出来放到卡片样式中
+        margin-bottom: 30px;
+    }
+
+    &-wrapper{
+        display: flex;
+    }
+    // 子标题 及 内容样式
+    .subtitle{
+        margin-bottom: 8px;
+        
+        &-count{
+            font-size: 17px;
+            font-weight: 500;
+            color: #17a98a;
+            &.dist{
+                color:#e85471;
+            }
+        }
+        &-count+&{
+            margin-top: 20px;
+        }
+    }
+    // 饼状图
+    &-chart{
+        margin-left: auto;
+    }
+    &-profile{
+        display: flex;
+        align-items: center;
+        margin-top: 40px;
+    }
+    &-img{
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin:0 16px 0 12px;
+    }
+    // 人员信息
+    &-name{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    &-type{
+        font-size: 13px;
+        margin-top: 4px;
+    }
+}
+.circle{
+    width: 100px;
+    height: 100px;
+    border: 3px solid #5b5f78;
+    border-radius: 50%;
+    position:relative;
+}
+@keyframes pieChart {
+    100% {
+     stroke-dashoffset: 0;
+    }
+}
+.pie{
+    width: 120px;
+    height: 120px;
+    left: 50%;
+    top:50%;
+    position:relative;
+    transform: translate(-50%,-50%) rotate(-90deg);
+    svg circle{
+            fill:transparent;
+            stroke: #4356d6;
+            stroke-width: 14;
+            stroke-dasharray: 275;
+            stroke-dashoffset: 235;
+            animation: pieChart 3.8s linear forwards;
+    }
+}
+.counter{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.offer-button{
+    background: #4255d4;
+    padding: 14px;
+    margin-top: auto;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    justify-content: center;
+}
+
+
+// 日历面板
+.cards {
+    &-wrapper {
+        width: 100%;
+        max-width: 305px;
+        margin-left: 20px;
         svg {
             width: 1rem;
         }
     }
+
+    &-header {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 20px 45px;
+        background: #10122b;
+        border-radius: 6px 6px 0 0;
+        &-date{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg{
+                width: 30px;
+                color:#4154d1;
+                border-radius: 50%;
+                padding: 5px;
+                background: #14183c;
+            }
+        }
+        .title{
+            margin: 0 16px;
+            font-size: 15px;
+        }
+    }
+    // 具体时间头 及 其中时间 天气样式
+    &-head {
+        display: flex;
+        align-items: center;
+    }
+    
+
+    &.card{
+        border-radius: 0 0 6px 6px;
+        padding:30px 20px;
+    }
 }
 
-
-svg {
-    width: 1rem;
-}
 
 img {
-    width: 12px;
+    max-width: 100%;
 }
