@@ -437,8 +437,6 @@ body {
 .discount {
   max-width: 320px;
   width: 100%;
-  -webkit-animation: top 1s 0.4s both;
-          animation: top 1s 0.4s both;
 }
 
 .discount .title {
