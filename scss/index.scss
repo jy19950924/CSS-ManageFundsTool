@@ -215,11 +215,32 @@ body {
 
         &+& {
             margin-left: 25px;
+            position: relative;
+            &:before{
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: #ef415c;
+                position:absolute;
+                top:-2px;
+                right: -8px;
+            }
         }
 
         &.active {
             font-weight: 500;
             color: #bebec4;
+            position: relative;
+            &::before{
+                content:'';
+                width: 22px;
+                height: 2px;
+                background: #4255d4;
+                left: 0;
+                bottom: 0;
+                position: absolute;
+            }
         }
     }
 }
