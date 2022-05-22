@@ -11,7 +11,9 @@ $panel-bg: #252954;
 $word-color: #606172;
 $table-color: #10122b;
 
-:root {}
+:root {
+    --delay: 0s;
+}
 
 html {
     font-size: 16px;
@@ -35,6 +37,7 @@ body {
     background-color: $main-bg;
     display: flex;
     margin: 0 auto;
+    height: 100vh;
 }
 
 // 侧边栏
@@ -42,14 +45,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    width: 6rem;
+    width: 96px;
     padding: 117px 0 40px;
+    animation: left 1s var(--delay) both;
 
     svg {
         width: 24px;
         cursor: pointer;
 
+        &.active,
         &:hover {
             color: #4255D3;
         }
@@ -57,10 +61,35 @@ body {
         &+svg {
             margin-top: 34px;
         }
+
     }
 
     svg:last-child {
         margin-top: auto;
+    }
+}
+
+@keyframes left {
+    0% {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes top {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
     }
 
 }
@@ -73,6 +102,7 @@ body {
     align-items: center;
     text-decoration: none;
     width: 100%;
+    animation: top 1s both;
 
     .logo {
         padding: 20px 50px 20px 0;
@@ -117,9 +147,10 @@ body {
     display: flex;
     align-items: center;
 
-    .button{
+    .button {
         margin-right: 20px;
     }
+
     .profile {
         width: 18px;
         margin-left: 12px;
@@ -135,7 +166,6 @@ body {
     color: #9b9ca7;
     padding: 2px 12px;
     border-radius: 4px;
-    // margin-right: 20px;
 
     svg {
         width: 16px;
@@ -154,11 +184,6 @@ body {
     .user-box {
         margin-top: 25px;
         display: flex;
-        // height: 100%;
-
-        &+& {
-            margin-top: 20px;
-        }
 
         .cards-header {
             display: flex;
@@ -166,226 +191,6 @@ body {
             justify-content: center;
         }
 
-        /*
-        &.first-box {
-            display: flex;
-            margin: 1rem 1rem 1rem 0;
-
-            .discount {
-                max-width: 320px;
-                width: 100%;
-                height: 100%;
-                margin-left: 20px;
-                color: $word-color;
-
-                .title {
-                    margin-bottom: 30px;
-                }
-
-                &.card {
-                    background-color: $panel-bg;
-                    max-height: 416px;
-                    height: 100%;
-                    padding: 40px 30px;
-                }
-
-                &-wrapper {
-                    display: flex;
-                }
-
-                &-info {
-                    .subtitle {
-                        font-size: 13px;
-                        margin-bottom: 8px;
-
-                        &-count {
-                            color: #17927E;
-
-                            &+.subtitle {
-                                // 相邻兄弟选择器
-                                margin-top: 20px;
-                            }
-
-                            &.dist {
-                                color: #e85471;
-                            }
-                        }
-                    }
-                }
-
-                &-chart {
-                    margin-left: auto;
-
-                    .circle {
-                        width: 100px;
-                        height: 100px;
-                        border: 3px solid #535771;
-                        border-radius: 50%;
-                        position: relative;
-
-                        .pie {
-                            width: 120px;
-                            height: 120px;
-                            left: 50%;
-                            top: 50%;
-                            position: relative;
-                            transform: translate(-50%, -50%) rotate(-90deg);
-
-                            svg {
-                                width: 120px;
-
-                                @keyframes pieChart {
-                                    100% {
-                                        stroke-dashoffset: 0;
-                                    }
-                                }
-
-                                circle {
-                                    // 未学习直接复制
-                                    fill: transparent;
-                                    stroke: #4356d6;
-                                    stroke-width: 14;
-                                    stroke-dasharray: 275;
-                                    stroke-dashoffset: 235;
-                                    animation: pieChart 3.8s linear forwards;
-
-                                }
-                            }
-                        }
-
-                        .counter {
-                            position: absolute;
-                            left: 50%;
-                            top: 50%;
-                            transform: translate(-50%, -50%);
-                        }
-
-
-                    }
-                }
-
-                &-profile {
-                    display: flex;
-                    align-items: center;
-                    margin-top: 40px;
-
-
-                    .by {
-                        color: $word-color;
-
-                    }
-                }
-
-                &-img {
-                    width: 48px;
-                    height: 48px;
-                    margin: 0 16px 0 12px;
-                    border-radius: 50%;
-                }
-
-                &-name {
-                    font-weight: 500;
-                    font-size: 15px;
-                }
-
-                &-type {
-                    margin-top: 4px;
-                    font-size: 13px;
-                }
-
-                .button {
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    border-radius: 4px;
-
-                    &.offer-button {
-                        margin-top: auto;
-                        padding: 14px;
-                        justify-content: center;
-                        font-size: 13px;
-                        margin-right: 0px;
-                        cursor: pointer;
-                        background: #4255d4;
-                        text-align: center;
-                        color: #fff;
-                    }
-                }
-            }
-
-            
-            .items {
-                &.days {
-                    display: flex;
-
-                    .item {
-                        box-sizing: border-box;
-                        width: calc(100%/7);
-                        text-align: center;
-                    }
-                }
-
-                &.numbers {
-                    display: flex;
-
-                    flex-wrap: wrap;
-
-                    .item {
-                        box-sizing: border-box;
-                        width: calc(100%/7);
-                        text-align: center;
-                    }
-                }
-            }
-        }
-*/
-        /*
-        &.second-box {
-            display: flex;
-
-            .cards {
-                &-wrapper {
-                    background-color: $panel-bg;
-                    padding: 1rem;
-                }
-
-                &-header {
-                    display: flex;
-
-                    &-date {
-                        display: flex;
-
-                        svg {
-                            width: 1rem;
-                        }
-                    }
-                }
-
-                &-view {
-
-                    svg {
-                        width: 1rem;
-                    }
-                }
-
-                &-button {
-                    &.button {
-                        svg {
-                            width: 1rem;
-                        }
-                    }
-                }
-            }
-
-            .card {
-                &.transection {
-                    background-color: $panel-bg;
-                    margin-left: 1rem;
-                    padding: 1rem;
-                }
-            }
-        }
-        */
     }
 }
 
@@ -424,7 +229,7 @@ body {
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    max-height: 416px;
+    max-height: 430px;
     width: 100%;
     border-radius: 6px;
 
@@ -525,11 +330,13 @@ body {
             &.dist {
                 color: #e85471;
             }
+
+            &+.subtitle {
+                margin-top: 20px;
+            }
         }
 
-        &-count+& {
-            margin-top: 20px;
-        }
+
     }
 
     // 饼状图
@@ -626,6 +433,7 @@ body {
             width: 1rem;
         }
     }
+
     // 日历面板 头（切换年份样式）
     &-header {
         font-size: 14px;
@@ -645,6 +453,7 @@ body {
                 border-radius: 50%;
                 padding: 5px;
                 background: #14183c;
+                cursor: pointer;
             }
         }
 
@@ -658,7 +467,8 @@ body {
     &-head {
         display: flex;
         align-items: center;
-        svg{
+
+        svg {
             width: 24px;
             color: #818394;
             margin-left: auto;
@@ -687,141 +497,397 @@ body {
         padding: 30px 20px;
     }
 }
-.items{ // 日历 星期 面板
+
+.items {
+    // 日历 星期 面板
     display: flex;
     margin-top: 16px;
     font-size: 13px;
     font-weight: 500;
     flex-wrap: wrap;
-    &.numbers{
+
+    &.numbers {
         margin-top: 0;
     }
 }
-.item{ 
-    flex:0 1 calc(100%/7);
-    padding:10px 5px;
+
+.item {
+    flex: 0 1 calc(100%/7);
+    padding: 10px 5px;
     text-align: center;
-    &.is-active{
+
+    &.is-active {
         background: #4255d4;
         border-radius: 50%;
-        color:#fff
+        color: #fff
     }
-    &.disable{
-        color:#595b5b;
-    }   
+
+    &.disable {
+        color: #595b5b;
+    }
 }
+
 // 用户介绍页
-.account{
+.account {
     width: 100%;
-    height:180px;
+    height: 180px;
     cursor: pointer;
     margin-top: auto;
     position: relative;
-    &:before{ // 红黄圈
+
+    &:before {
+        // 红黄圈
         content: "";
-        width:24px;
-        height:24px;
+        width: 24px;
+        height: 24px;
         background: #ef415c;
         box-shadow: -15px 0 0 0 #ef8741;
-        top:20px;
-        left:42px;
+        top: 20px;
+        left: 42px;
         border-radius: 50%;
         position: absolute;
-    }    
-    &-wrapper{
+    }
+
+    &-wrapper {
         display: flex;
         margin-left: 20px;
         align-items: center;
         max-width: 310px;
-        
-        width:100%;
-        flex-direction: column;   
+
+        width: 100%;
+        flex-direction: column;
     }
-    &-profile{
+
+    &-profile {
         margin: auto;
-        text-align: center;  
+        text-align: center;
         position: relative;
-        img{
-            width:84px;
+
+        img {
+            width: 84px;
             height: 84px;
             border-radius: 50%;
             object-fit: cover;
-            padding:5px;
+            padding: 5px;
             border: 3px solid #4255d3;
         }
+
         @keyframes fly {
             40% {
-             transform: translate(-6px, -6px);
+                transform: translate(-6px, -6px);
             }
+
             60% {
-             transform: translate(-12px, -2px);
+                transform: translate(-12px, -2px);
             }
+
             100% {
-             transform: translate(0px, 0px);
+                transform: translate(0px, 0px);
             }
         }
-        .blob{
-            position:absolute;
+
+        .blob {
+            position: absolute;
             border-radius: 50%;
             animation: fly 5.8s linear infinite alternate;
         }
-        .blob:nth-child(1){
-            width:14px;
-            height:14px;
-            top:25px;
-            left:-20px;
+
+        .blob:nth-child(1) {
+            width: 14px;
+            height: 14px;
+            top: 25px;
+            left: -20px;
             background: #28327a;
         }
-        .blob:nth-child(2){
-            width:18px;
-            height:18px;
+
+        .blob:nth-child(2) {
+            width: 18px;
+            height: 18px;
             background: #87344c;
             right: -20px;
             top: -20px;
             animation-delay: 0.2s;
         }
-        .blob:nth-child(3){
-            width:12px;
-            height:12px;
+
+        .blob:nth-child(3) {
+            width: 12px;
+            height: 12px;
             background: #13645b;
-            right:-35px;
-            top:50%;
-            animation-delay:1.8s;
+            right: -35px;
+            top: 50%;
+            animation-delay: 1.8s;
         }
     }
-    &-name{
+
+    &-name {
         margin: 20px 0 10px;
     }
-    &-title{
+
+    &-title {
         font-size: 14px;
     }
-    &-cash{ // 资金数量
+
+    &-cash {
+        // 资金数量
         font-size: 22px;
         font-weight: 500;
         margin-bottom: 6px;
         padding-top: 22px;
         position: relative;
-        &::before{
+
+        &::before {
             content: "";
             width: 5px;
             border-radius: 50%;
             height: 5px;
             position: absolute;
-            right:10px;
-            top:24px;
+            right: 10px;
+            top: 24px;
             background: #9b9ca7;
             box-shadow: -10px 0 0 0 #9b9ca7, 10px 0 0 0 #9b9ca7;
         }
     }
-    &-income{ // 总体支出
+
+    &-income {
+        // 总体支出
         font-size: 14px;
     }
-    &-iban{ // 卡号盒子
+
+    &-iban {
+        // 卡号盒子
         margin-top: auto;
         font-weight: 500;
     }
 }
 
+// 第二个盒子 
+.user-box {
+    &+& {
+        margin-top: 20px;
+
+        .cards {
+
+            // 日期 交易记录
+            &-wrapper {
+                margin-left: 0;
+                flex-grow: 1;
+                max-width: none;
+
+            }
+
+            &-header {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &-view {
+                // 日历显示模式
+                display: flex;
+                align-items: center;
+
+                &>svg {
+                    margin-right: 12px;
+                    width: 24px;
+                }
+            }
+
+            &-button {
+                background: #15193c;
+                padding: 10px 16px;
+                margin-right: 0;
+            }
+        }
+    }
+
+    .today {
+        margin-left: 30px;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #ef415c;
+            border-radius: 50%;
+            left: 50%;
+            bottom: -8px;
+        }
+    }
+
+    .table {
+        // 交易记录表格
+        padding: 0px;
+        text-align: left;
+
+        th:first-child {
+            padding-left: 36px;
+        }
+
+
+        th {
+            font-size: 14px;
+            font-weight: normal;
+            padding-bottom: 16px;
+
+            &:nth-child(n+5) {
+                padding: 0 10px 16px;
+            }
+        }
+
+        td {
+            font-size: 15px;
+            padding: 8px 0;
+            vertical-align: middle;
+
+            &:nth-child(n+5) {
+                padding: 0 10px;
+            }
+
+            &:last-of-type {
+                width: 100px;
+            }
+
+            &:nth-last-of-type(2) svg {
+                width: 16px;
+            }
+        }
+
+        input {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 1px solid #9b9ca7;
+            cursor: pointer;
+            margin-right: 16px;
+            appearance: none;
+            background-position: center;
+
+            &:checked {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%23fff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round' class='css-i6dzq1'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+                background-size: 12px;
+                background-color: #252954;
+            }
+        }
+
+        .status {
+            // 表格中状态
+            display: flex;
+            align-items: center;
+            color: #1aa385;
+
+            svg {
+                width: 22px;
+                height: 22px;
+                margin-right: 6px;
+                padding: 3px;
+                background: #142940;
+                border-radius: 4px;
+                color: currentColor;
+            }
+
+            &.is {
+                &-wait {
+                    color: #3E4EC2;
+                }
+
+                &-red {
+                    color: #d14b69;
+                }
+            }
+
+        }
+    }
+
+    .time {
+        height: 24px;
+        font-size: 13px;
+        background-color: #9e5924;
+        border-radius: 4px;
+        color: #fff;
+        padding: 4px 8px;
+
+        &.is {
+            &-wait {
+                background: #4255d3;
+            }
+
+        }
+    }
+}
+
+.transection {
+    // 转账记录
+    max-width: 310px;
+    width: 100%;
+    margin-left: 20px;
+    flex-shrink: 0;
+
+    &-header {
+        display: flex;
+        font-size: 14px;
+        font-weight: 500;
+        justify-content: space-between;
+        align-items: center;
+
+        .head {
+            &.is-wait {
+                color: #3E4EC2
+            }
+        }
+    }
+}
+
+.credit {
+    &-wrapper {
+        display: flex;
+        margin-top: auto;
+        align-items: center;
+        font-size: 14px;
+
+        svg {
+            width: 38px;
+            border-radius: 6px;
+            margin-right: 12px;
+            padding: 3px;
+        }
+    }
+
+    &-type {
+        color: #e7e8ea;
+        margin-bottom: 6px;
+    }
+
+    &-status {
+        font-size: 13px;
+        font-weight: normal;
+    }
+
+    &-money {
+        margin-left: auto;
+
+        &.is {
+            &-active {
+                color: #1aa385;
+            }
+
+            &-wait {
+                color: #3E4EC2;
+            }
+
+            &-cancel {
+                color: #d14b69;
+            }
+        }
+    }
+}
+
 img {
     max-width: 100%;
+}
+
+//temp
+
+.credit-wrapper svg {
+    width: 38px;
 }
