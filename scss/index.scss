@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
 
-$font-family: "Inter",
-    sans-serif;
+$font-family: "Inter", sans-serif;
 $bg-color: #252954;
 // $body-color: #9b9ca7;
 $main-bg: #0e0e23;
@@ -11,61 +10,10 @@ $panel-bg: #252954;
 $word-color: #606172;
 $table-color: #10122b;
 
-:root {
-    --delay: 0s;
-}
 
-html {
-    font-size: 16px;
-    color: white;
-}
-
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-body {
-    background: $bg-color;
-    color: #9b9ca7;
-    font-family: $font-family;
-}
-
-.wrapper {
-    max-width: 1600px;
-    background-color: $main-bg;
-    display: flex;
-    margin: 0 auto;
-    height: 100vh;
-}
-
-// 侧边栏
-.left-side {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 96px;
-    padding: 117px 0 40px;
-    animation: left 1s var(--delay) both;
-
-    svg {
-        width: 24px;
-        cursor: pointer;
-
-        &.active,
-        &:hover {
-            color: #4255D3;
-        }
-
-        &+svg {
-            margin-top: 34px;
-        }
-
-    }
-
-    svg:last-child {
-        margin-top: auto;
+@keyframes turn {
+    100% {
+        transform: rotate(1turn);
     }
 }
 
@@ -94,6 +42,64 @@ body {
 
 }
 
+
+:root {
+    --delay: 0s;
+}
+
+html {
+    font-size: 16px;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: $bg-color;
+    color: #9b9ca7;
+    font-family: $font-family;
+}
+
+.wrapper {
+    max-width: 1600px;
+    background-color: $main-bg;
+    display: flex;
+    margin: 0 auto;
+    height: 100vh;
+    overflow: hidden;
+}
+
+// 侧边栏
+.left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 96px;
+    padding: 117px 0 40px;
+    animation: left 1s var(--delay) both;
+
+    svg {
+        width: 24px;
+        cursor: pointer;
+
+        &.active,
+        &:hover {
+            color: #4255D3;
+        }
+
+        &+svg {
+            margin-top: 34px;
+        }
+    }
+
+    svg:last-child {
+        margin-top: auto;
+    }
+}
+
+
 .header {
     background: radial-gradient(circle, rgb(20, 24, 52) 0%, rgb(19, 22, 47) 100%);
     display: flex;
@@ -102,7 +108,20 @@ body {
     align-items: center;
     text-decoration: none;
     width: 100%;
+    box-shadow: 0 16px 12px #0e0e23;
     animation: top 1s both;
+    border-radius: 6px;
+    font-size: 15px;
+    white-space: nowrap;
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: 25px;
+        position: absolute;
+        top: -25px;
+        left: 0;
+    }
 
     .logo {
         padding: 20px 50px 20px 0;
@@ -110,10 +129,9 @@ body {
         color: #e7e8ea;
 
         &-det {
-            margin-left: 2px;
+            margin-left: -2px;
             border-radius: 50%;
-            padding: 8px 10px 8px 10px;
-
+            padding: 8px;
             background-color: #4255D3;
             font-size: 15px;
         }
@@ -126,7 +144,7 @@ body {
         display: flex;
         border-bottom: 3px solid transparent;
         align-items: center;
-        transition: 0.3s;
+        // transition: 0.3s;
 
         svg {
             width: 20px;
@@ -142,19 +160,31 @@ body {
     }
 }
 
-.user-info {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
+.user {
+    &-info {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
 
-    .button {
-        margin-right: 20px;
+        .button {
+            margin-right: 20px;
+        }
+
+        .profile {
+            width: 18px;
+            margin-left: 12px;
+            margin-right: 20px;
+        }
+
+        .hour {
+            font-size: 15px;
+            white-space: nowrap;
+        }
     }
 
-    .profile {
-        width: 18px;
-        margin-left: 12px;
-        margin-right: 20px;
+    &-name {
+        font-size: 15px;
+        white-space: nowrap;
     }
 }
 
@@ -173,6 +203,7 @@ body {
     }
 }
 
+// 下方主要面板
 .main-container {
     width: 100%;
     padding: 25px;
@@ -185,6 +216,11 @@ body {
         margin-top: 25px;
         display: flex;
 
+        &>* {
+            animation: top 1s var(--delay) both;
+        }
+
+
         .cards-header {
             display: flex;
             align-items: center;
@@ -195,8 +231,10 @@ body {
 }
 
 .activity {
+    // 用户积极信息
     max-width: 480px;
     width: 100%;
+    // animation-delay: 0.2s;
 
     .title {
         margin-bottom: 20px;
@@ -216,14 +254,15 @@ body {
         &+& {
             margin-left: 25px;
             position: relative;
-            &:before{
+
+            &:before {
                 content: '';
                 width: 5px;
                 height: 5px;
                 border-radius: 50%;
                 background: #ef415c;
-                position:absolute;
-                top:-2px;
+                position: absolute;
+                top: -2px;
                 right: -8px;
             }
         }
@@ -232,8 +271,9 @@ body {
             font-weight: 500;
             color: #bebec4;
             position: relative;
-            &::before{
-                content:'';
+
+            &::before {
+                content: '';
                 width: 22px;
                 height: 2px;
                 background: #4255d4;
@@ -329,6 +369,7 @@ body {
 .discount {
     max-width: 320px;
     width: 100%;
+    animation: top 1s 0.4s both;
 
     .title {
         // 把属于每个不用面板中间隔放到面板样式中，相同的字体大小，抽出来放到卡片样式中
@@ -590,6 +631,7 @@ body {
             border-radius: 50%;
             object-fit: cover;
             padding: 5px;
+            object-position: left;
             border: 3px solid #4255d3;
         }
 
@@ -810,7 +852,28 @@ body {
             &.is {
                 &-wait {
                     color: #3E4EC2;
+                    position: relative;
+
+                    &:before {
+                        width: 22px;
+                        height: 22px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        content: "";
+                        background: #1a214d;
+                        border-radius: 4px;
+                    }
+
+                    svg {
+                        background-color: transparent;
+                        color: currentcolor;
+                        animation: turn 2s linear infinite both;
+                    }
                 }
+
+
+
 
                 &-red {
                     color: #d14b69;
