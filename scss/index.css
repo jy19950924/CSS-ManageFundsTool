@@ -124,6 +124,10 @@ body {
           align-items: center;
 }
 
+.user-info .button {
+  margin-right: 20px;
+}
+
 .user-info .profile {
   width: 18px;
   margin-left: 12px;
@@ -142,7 +146,6 @@ body {
   color: #9b9ca7;
   padding: 2px 12px;
   border-radius: 4px;
-  margin-right: 20px;
 }
 
 .button svg {
@@ -169,7 +172,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
   /*
         &.first-box {
             display: flex;
@@ -714,9 +716,222 @@ body {
           align-items: center;
 }
 
+.cards-head svg {
+  width: 24px;
+  color: #818394;
+  margin-left: auto;
+}
+
+.cards-info .degree {
+  margin-top: 10px;
+  font-size: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #818394;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+}
+
+.cards-info .degree svg {
+  width: 24px;
+  margin-right: 12px;
+}
+
 .cards.card {
   border-radius: 0 0 6px 6px;
   padding: 30px 20px;
+}
+
+.items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.items.numbers {
+  margin-top: 0;
+}
+
+.item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(100%/7);
+          flex: 0 1 calc(100%/7);
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.item.is-active {
+  background: #4255d4;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.item.disable {
+  color: #595b5b;
+}
+
+.account {
+  width: 100%;
+  height: 180px;
+  cursor: pointer;
+  margin-top: auto;
+  position: relative;
+}
+
+.account:before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: #ef415c;
+  -webkit-box-shadow: -15px 0 0 0 #ef8741;
+          box-shadow: -15px 0 0 0 #ef8741;
+  top: 20px;
+  left: 42px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.account-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 310px;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.account-profile {
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+.account-profile img {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 5px;
+  border: 3px solid #4255d3;
+}
+
+@-webkit-keyframes fly {
+  40% {
+    -webkit-transform: translate(-6px, -6px);
+            transform: translate(-6px, -6px);
+  }
+  60% {
+    -webkit-transform: translate(-12px, -2px);
+            transform: translate(-12px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fly {
+  40% {
+    -webkit-transform: translate(-6px, -6px);
+            transform: translate(-6px, -6px);
+  }
+  60% {
+    -webkit-transform: translate(-12px, -2px);
+            transform: translate(-12px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+  }
+}
+
+.account-profile .blob {
+  position: absolute;
+  border-radius: 50%;
+  -webkit-animation: fly 5.8s linear infinite alternate;
+          animation: fly 5.8s linear infinite alternate;
+}
+
+.account-profile .blob:nth-child(1) {
+  width: 14px;
+  height: 14px;
+  top: 25px;
+  left: -20px;
+  background: #28327a;
+}
+
+.account-profile .blob:nth-child(2) {
+  width: 18px;
+  height: 18px;
+  background: #87344c;
+  right: -20px;
+  top: -20px;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.account-profile .blob:nth-child(3) {
+  width: 12px;
+  height: 12px;
+  background: #13645b;
+  right: -35px;
+  top: 50%;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+.account-name {
+  margin: 20px 0 10px;
+}
+
+.account-title {
+  font-size: 14px;
+}
+
+.account-cash {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  padding-top: 22px;
+  position: relative;
+}
+
+.account-cash::before {
+  content: "";
+  width: 5px;
+  border-radius: 50%;
+  height: 5px;
+  position: absolute;
+  right: 10px;
+  top: 24px;
+  background: #9b9ca7;
+  -webkit-box-shadow: -10px 0 0 0 #9b9ca7, 10px 0 0 0 #9b9ca7;
+          box-shadow: -10px 0 0 0 #9b9ca7, 10px 0 0 0 #9b9ca7;
+}
+
+.account-income {
+  font-size: 14px;
+}
+
+.account-iban {
+  margin-top: auto;
+  font-weight: 500;
 }
 
 img {
